@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex Silva Santos | Portfólio</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Fundo Animado (Estilo Água) -->
+    <div class="water-wrapper">
+        <div class="blob"></div>
+        <div class="blob"></div>
+        <div class="blob"></div>
+    </div>
+
+    <header>
+        <nav class="container">
+            <div class="logo">ALEX<span>.DEV</span></div>
+            <ul class="nav-links">
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#formacao">Formação</a></li>
+                <li><a href="#experiencia">Experiência</a></li>
+                <li><a href="#projetos">Projetos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="hero" class="container">
+        <div class="hero-content">
+            <h1>Olá, eu sou o <br><span class="highlight">Alex Silva Santos</span></h1>
+            <p>Focado em <strong>Desenvolvimento e Engenharia de Software</strong>. Estudante de Gestão da TI na FATEC.</p>
+            <div class="hero-btns">
+                <a href="#contato" class="btn primary">Entrar em contato</a>
+                <a href="#projetos" class="btn secondary glass">Ver Projetos</a>
+            </div>
+        </div>
+    </section>
+
+<section id="sobre" class="container">
+    <h2 class="section-title">Sobre Mim</h2>
+    <div class="about-grid">
+        <!-- Coluna da Foto -->
+        <div class="about-img-container">
+            <div class="about-img-frame glass-card">
+                <img src="img/alex.jpg" alt="Alex Silva Santos" class="perfil-foto">
+            </div>
+        </div>
+
+        <!-- Coluna do Texto -->
+        <div class="about-text glass-card">
+                <p>Tenho 20 anos e moro em Itaquaquecetuba - SP. Atualmente busco oportunidades na área de TI para aplicar meus conhecimentos em desenvolvimento Front-End, Python e Engenharia de Software.</p>
+            <div class="skills-tags">
+                <span>Front-End</span>
+                <span>Python</span>
+                <span>Django</span>
+                <span>Edição de Vídeo</span>
+                <span>Suporte de TI</span>
+                <span>Inglês (Intermediário-Avançado)</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <section id="formacao">
+        <div class="container">
+            <h2 class="section-title">Formação & Cursos</h2>
+            <div class="timeline">
+                <div class="timeline-item glass-card">
+                    <h3>Gestão da Tecnologia da Informação</h3>
+                    <p>FATEC | Prev. Conclusão: Dez 2026</p>
+                </div>
+                <div class="timeline-item glass-card">
+                    <h3>Desenvolvedor Front-End</h3>
+                    <p>Senai | Setembro 2024</p>
+                </div>
+                <div class="timeline-item glass-card">
+                    <h3>Programação em Python</h3>
+                    <p>Senai | Dezembro 2024</p>
+                </div>
+                <div class="timeline-item glass-card">
+                    <h3>CCNA: Redes</h3>
+                    <p>Cisco | Dezembro 2025</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="experiencia" class="container">
+        <h2 class="section-title">Experiência Profissional</h2>
+        <div class="exp-card glass-card">
+            <div class="exp-header">
+                <h3>Estagiário de TI</h3>
+                <span>Set/2025 - Atual</span>
+            </div>
+            <p><strong>Prefeitura de Santa Isabel</strong></p>
+            <ul>
+                <li>Atendimento a usuários, suporte técnico em hardware/software e manutenção preventiva.</li>
+            </ul>
+        </div>
+        <div class="exp-card glass-card">
+            <div class="exp-header">
+                <h3>Expert em Interação</h3>
+                <span>Mar/2025 - Jul/2025</span>
+            </div>
+            <p><strong>Teleperformance (Banco Master)</strong></p>
+            <ul>
+                <li>Resolução de demandas críticas e registro de informações em sistemas bancários.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projetos" class="container">
+        <h2 class="section-title">Projetos em Destaque</h2>
+        <div class="carousel-single-wrapper">
+            <button class="carousel-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+            
+            <div class="carousel-viewport">
+                <div class="carousel-track" id="track">
+                    
+                    <!-- Projeto 0 -->
+                    <div class="project-slide">
+                        <div class="project-card glass-card" data-index="0">
+                            <div class="project-img-placeholder">
+                                <img src="img/sistemacontroledecasos.png" alt="Controle de Casos" class="project-img">
+                                <div class="img-overlay"></div>
+                                <div class="click-hint pulse">Clique para ver detalhes</div>
+                            </div>
+                            <div class="project-info">
+                                <span class="tag-implantado">Implantado na Prefeitura</span>
+                                <h3>Controle de Casos (TI)</h3>
+                                <p>Sistema corporativo para gestão de ativos e chamados técnicos.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 1 -->
+                    <div class="project-slide">
+                        <div class="project-card glass-card" data-index="1">
+                            <div class="project-img-placeholder">
+                                <img src="img/senaibiblioteca.png" alt="Biblioteca Senai" class="project-img">
+                                <div class="img-overlay"></div>
+                                <div class="click-hint pulse">Clique para ver detalhes</div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Biblioteca Senai (Django)</h3>
+                                <p>Gerenciamento de acervo acadêmico utilizando Python e ORM Django.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 2 -->
+                    <div class="project-slide">
+                        <div class="project-card glass-card" data-index="2">
+                            <div class="project-img-placeholder">
+                                <img src="img/sistemadereciclagemescolarsustentável.png" alt="Reciclagem Escolar" class="project-img">
+                                <div class="img-overlay"></div>
+                                <div class="click-hint pulse">Clique para ver detalhes</div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Reciclagem Escolar Sustentável</h3>
+                                <p>Plataforma de gamificação e incentivo à sustentabilidade nas escolas.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 3 -->
+                    <div class="project-slide">
+                        <div class="project-card glass-card" data-index="3">
+                            <div class="project-img-placeholder">
+                                <img src="img/sistemadeintegraçãoescolar .jpeg" alt="Integração Escolar" class="project-img">
+                                <div class="img-overlay"></div>
+                                <div class="click-hint pulse">Clique para ver detalhes</div>
+                            </div>
+                            <div class="project-info">
+                                <h3>Integração Escolar</h3>
+                                <p>Portal para comunicação em tempo real entre escola, pais e alunos.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 4 -->
+                    <div class="project-slide">
+                        <div class="project-card glass-card" data-index="4">
+                            <div class="project-img-placeholder">
+                                <img src="img/sistemadereciclagem.png" alt="Ecocreditos" class="project-img">
+                                <div class="img-overlay"></div>
+                                <div class="click-hint pulse">Clique para ver detalhes</div>
+                            </div>
+                            <div class="project-info">
+                                <h3>ECOCRÉDITOS (SGTS)</h3>
+                                <p>Gestão para Troca Sustentável e inclusão social de catadores.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Projeto 5 -->
+                    <div class="project-slide">
+                        <div class="project-card glass-card" data-index="5">
+                            <div class="project-img-placeholder">
+                                <img src="img/panco.png" alt="BPMN Panco" class="project-img">
+                                <div class="img-overlay"></div>
+                                <div class="click-hint pulse">Clique para ver detalhes</div>
+                            </div>
+                            <div class="project-info">
+                                <h3>BPMN Processo Panco</h3>
+                                <p>Modelagem e otimização de processos específicos de gestão corporativa.</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <button class="carousel-btn next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- Modal (Popup) -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <div id="modal-data"></div>
+        </div>
+    </div>
+
+    <footer id="contato">
+        <div class="container glass-card footer-content">
+            <h2>Vamos conversar?</h2>
+            <div class="contact-info">
+                <a href="mailto:alextjss68@gmail.com"><i class="fas fa-envelope"></i> alextjss68@gmail.com</a>
+                <a href="tel:11934454984"><i class="fas fa-phone"></i> (11) 93445-4984</a>
+            </div>
+            <p class="copyright">© 2024 Alex Silva Santos.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
