@@ -629,7 +629,12 @@ section {
    EXPERIÊNCIA
    =========================== */
 #experiencia { background: var(--bg); }
-.exp-grid { display: flex; flex-direction: column; gap: 24px; }
+.exp-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem; /* Isso cria o espaço entre os cards */
+    margin-top: 3rem;
+}
 .exp-card-v2 {
     display: flex;
     gap: 24px;
