@@ -320,7 +320,23 @@ const projectData = [
                 <li>Documentation focused on internal process standardization.</li>
             </ul>
         `
-    }
+    },
+    {
+        title: "Ecological Park Platform",
+        sub: "GovTech & Institutional Portal · FATEC & City Hall",
+        stack: ["PHP", "MySQL", "JavaScript", "Networking", "Agile"],
+        content: `
+            <h3>About the Project</h3>
+            <p>An academic initiative developed at FATEC in partnership with the City Hall of Itaquaquecetuba to modernize public services and park management.</p>
+            <h3>My Role & Contributions</h3>
+            <ul>
+                <li><strong>Network Management:</strong> Supported infrastructure organization and technical communication within a multidisciplinary team.</li>
+                <li><strong>Coordination:</strong> Acted in project management and team synchronization using Agile Methodologies.</li>
+                <li><strong>Admin System:</strong> Developed features for visitor scheduling, engagement tracking, and environmental education management.</li>
+                <li><strong>Modernization:</strong> Delivered a complete institutional website to improve public service accessibility and digital presence.</li>
+            </ul>
+        `
+    },
 ];
 
 // ===========================
