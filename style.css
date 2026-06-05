@@ -115,9 +115,7 @@ section {
     transform: none !important;
 }
 
-/* ===========================
-   HEADER / NAV
-   =========================== */
+
 #header {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -210,9 +208,7 @@ section {
 }
 .mobile-menu .m-link:hover { color: var(--primary); }
 
-/* ===========================
-   TYPOGRAPHY
-   =========================== */
+
 .section-label {
     font-family: var(--mono);
     font-size: 0.78rem;
@@ -240,9 +236,7 @@ section {
     max-width: 540px;
 }
 
-/* ===========================
-   HERO
-   =========================== */
+
 #hero {
     min-height: 100vh;
     display: flex;
@@ -397,9 +391,7 @@ section {
 }
 @keyframes fade-scroll { from { opacity: 0.3; } to { opacity: 0.8; } }
 
-/* ===========================
-   SOBRE
-   =========================== */
+
 #sobre { background: var(--bg-2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
 .sobre-grid {
     display: grid;
