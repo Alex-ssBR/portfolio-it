@@ -1,243 +1,564 @@
+--- START OF FILE Paste June 05, 2026 - 12:10AM ---
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Silva Santos | Portfolio</title>
+    <title>Alex Silva Santos — Software Engineer</title>
     <link rel="stylesheet" href="style.css">
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
 
-    <!-- Animated Water Background -->
-    <div class="water-wrapper">
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
-    </div>
+    <!-- Background particle canvas -->
+    <canvas id="bg-canvas"></canvas>
 
-    <header>
-        <nav class="container">
-            <div class="logo">ALEX<span>.DEV</span></div>
+    <!-- Custom cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-follower" id="cursor-follower"></div>
+
+    <!-- Reading progress bar -->
+    <div class="reading-bar" id="reading-bar"></div>
+
+    <!-- Header -->
+    <header id="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <span class="logo-bracket">&lt;</span>
+                alex
+                <span class="logo-dot">.dev</span>
+                <span class="logo-bracket">/&gt;</span>
+            </div>
             <ul class="nav-links">
-                <li><a href="#sobre">About</a></li>
-                <li><a href="#formacao">Education</a></li>
-                <li><a href="#experiencia">Experience</a></li>
-                <li><a href="#projetos">Projects</a></li>
-                <li><a href="#contato">Contact</a></li>
+                <li><a href="#sobre" data-text="about">about</a></li>
+                <li><a href="#stack" data-text="stack">stack</a></li>
+                <li><a href="#formacao" data-text="education">education</a></li>
+                <li><a href="#experiencia" data-text="exp">exp</a></li>
+                <li><a href="#projetos" data-text="projects">projects</a></li>
+                <li><a href="#contato" class="nav-cta">contact</a></li>
             </ul>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <span></span><span></span><span></span>
+            </button>
         </nav>
+        <!-- Mobile menu -->
+        <div class="mobile-menu" id="mobileMenu">
+            <ul>
+                <li><a href="#sobre" class="m-link">about</a></li>
+                <li><a href="#stack" class="m-link">stack</a></li>
+                <li><a href="#formacao" class="m-link">education</a></li>
+                <li><a href="#experiencia" class="m-link">experience</a></li>
+                <li><a href="#projetos" class="m-link">projects</a></li>
+                <li><a href="#contato" class="m-link">contact</a></li>
+            </ul>
+        </div>
     </header>
 
-    <section id="hero" class="container">
-        <div class="hero-content">
-            <h1>Hi, I am <br><span class="highlight">Alex Silva Santos</span></h1>
-            <p>Focused on <strong>Software Development and Engineering</strong>. IT Management student at FATEC.</p>
-            <div class="hero-btns">
-                <a href="#contato" class="btn primary">Get in touch</a>
-                <a href="#projetos" class="btn secondary glass">View Projects</a>
+    <!-- ========== HERO ========== -->
+    <section id="hero">
+        <div class="hero-inner container">
+            <div class="hero-tag reveal-up">
+                <span class="status-dot"></span> Available for opportunities in SP
+            </div>
+
+            <h1 class="hero-title reveal-up" style="animation-delay:0.1s">
+                <span class="line-1">Software</span>
+                <span class="line-2"><em>Engineer</em></span>
+                <span class="line-3">who solves problems<span class="cursor-blink">_</span></span>
+            </h1>
+
+            <p class="hero-sub reveal-up" style="animation-delay:0.2s">
+                Alex Silva Santos — front-end and back-end developer with a solid foundation in Python, Django, and systems engineering. Real projects deployed in production.
+            </p>
+
+            <div class="hero-actions reveal-up" style="animation-delay:0.3s">
+                <a href="#projetos" class="btn-primary">
+                    <span>View projects</span>
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+                <a href="#contato" class="btn-ghost">Get in touch</a>
+            </div>
+
+            <div class="hero-stats reveal-up" style="animation-delay:0.4s">
+                <div class="stat">
+                    <span class="stat-num" data-target="6">0</span>
+                    <span class="stat-label">projects delivered</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num" data-target="1">0</span>
+                    <span class="stat-label">system in production</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <span class="stat-num">20</span>
+                    <span class="stat-label">years old</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="hero-scroll">
+            <span>scroll</span>
+            <div class="scroll-line"></div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section id="sobre">
+        <div class="container sobre-grid">
+            <div class="sobre-img-col reveal-left">
+                <div class="img-wrapper">
+                    <img src="img/alex.jpg" alt="Alex Silva Santos" class="perfil-foto">
+                    <div class="img-decoration">
+                        <div class="deco-box"></div>
+                        <div class="deco-dot-grid"></div>
+                    </div>
+                    <div class="img-badge">
+                        <i class="fas fa-code"></i>
+                        <span>Software Engineer</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="sobre-text-col reveal-right">
+                <div class="section-label">// about me</div>
+                <h2 class="section-title">Developer focused on<br><em>software engineering</em></h2>
+                <p class="sobre-p">
+                    I am 20 years old and live in Itaquaquecetuba – SP. I build functional systems focused on solving real problems — from school portals to corporate systems deployed in city halls.
+                </p>
+                <p class="sobre-p">
+                    My background in IT Management at FATEC is complemented by technical certifications in Front-End, Python, and Networking (CCNA), giving me a vision of both product and infrastructure.
+                </p>
+
+                <div class="tags-row">
+                    <span class="tag">Front-End</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">Django</span>
+                    <span class="tag">C# / ASP.NET</span>
+                    <span class="tag">Networking (CCNA)</span>
+                    <span class="tag">IT Support</span>
+                    <span class="tag">Advanced English</span>
+                    <span class="tag">Video Editing</span>
+                </div>
+
+                <div class="sobre-links">
+                    <a href="mailto:alextjss68@gmail.com" class="link-icon">
+                        <i class="fas fa-envelope"></i> alextjss68@gmail.com
+                    </a>
+                    <a href="tel:11934454984" class="link-icon">
+                        <i class="fas fa-phone"></i> +55 (11) 93445-4984
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="sobre" class="container">
-        <h2 class="section-title">About Me</h2>
-        <div class="about-grid">
-            <!-- Photo Column -->
-            <div class="about-img-container">
-                <div class="about-img-frame glass-card">
-                    <img src="alex.jpg" alt="Alex Silva Santos" class="perfil-foto">
-                </div>
-            </div>
+    <!-- ========== TECH STACK ========== -->
+    <section id="stack">
+        <div class="container">
+            <div class="section-label reveal-up">// technologies</div>
+            <h2 class="section-title reveal-up">Tech Stack</h2>
+            <p class="section-sub reveal-up">The technologies I use to build products from end to end.</p>
 
-            <!-- Text Column -->
-            <div class="about-text glass-card">
-                <p>I am 20 years old and live in SP, Brazil. Currently, I am seeking opportunities in the IT field to apply my knowledge in Front-End development, Python, and Software Engineering.</p>
-                <div class="skills-tags">
-                    <span>Front-End</span>
-                    <span>Python</span>
-                    <span>SQL</span>
-                    <span>Video Editing</span>
-                    <span>IT Support</span>
-                    <span>English (Intermediate-Advanced)</span>
+            <div class="stack-grid">
+                <div class="stack-category reveal-up" style="animation-delay:0.1s">
+                    <div class="stack-icon-row">
+                        <i class="fab fa-html5" style="color:#E34F26"></i>
+                        <i class="fab fa-css3-alt" style="color:#1572B6"></i>
+                        <i class="fab fa-js-square" style="color:#F7DF1E"></i>
+                    </div>
+                    <h3>Front-End</h3>
+                    <ul>
+                        <li>Semantic HTML5</li>
+                        <li>CSS3 + Animations</li>
+                        <li>JavaScript (ES6+)</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+
+                <div class="stack-category reveal-up" style="animation-delay:0.2s">
+                    <div class="stack-icon-row">
+                        <i class="fab fa-python" style="color:#3776AB"></i>
+                    </div>
+                    <h3>Back-End</h3>
+                    <ul>
+                        <li>Python 3</li>
+                        <li>Django + ORM</li>
+                        <li>C# / ASP.NET</li>
+                        <li>REST APIs</li>
+                    </ul>
+                </div>
+
+                <div class="stack-category reveal-up" style="animation-delay:0.3s">
+                    <div class="stack-icon-row">
+                        <i class="fas fa-database" style="color:#4479A1"></i>
+                    </div>
+                    <h3>Data & DB</h3>
+                    <ul>
+                        <li>SQL Server</li>
+                        <li>MySQL</li>
+                        <li>SQLite</li>
+                        <li>Django ORM</li>
+                    </ul>
+                </div>
+
+                <div class="stack-category reveal-up" style="animation-delay:0.4s">
+                    <div class="stack-icon-row">
+                        <i class="fas fa-network-wired" style="color:#38bdf8"></i>
+                    </div>
+                    <h3>Infrastructure</h3>
+                    <ul>
+                        <li>TCP/IP Networks</li>
+                        <li>Cisco (CCNA)</li>
+                        <li>Hardware Support</li>
+                        <li>Preventive Maintenance</li>
+                    </ul>
+                </div>
+
+                <div class="stack-category reveal-up" style="animation-delay:0.5s">
+                    <div class="stack-icon-row">
+                        <i class="fas fa-project-diagram" style="color:#a78bfa"></i>
+                    </div>
+                    <h3>Engineering</h3>
+                    <ul>
+                        <li>BPMN / Modeling</li>
+                        <li>Req. Gathering</li>
+                        <li>IT Management</li>
+                        <li>Ticket Management</li>
+                    </ul>
+                </div>
+
+                <div class="stack-category reveal-up" style="animation-delay:0.6s">
+                    <div class="stack-icon-row">
+                        <i class="fab fa-git-alt" style="color:#F05032"></i>
+                    </div>
+                    <h3>Tools</h3>
+                    <ul>
+                        <li>Git / GitHub</li>
+                        <li>VS Code</li>
+                        <li>Figma (Basic)</li>
+                        <li>Adobe Premiere</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ========== EDUCATION ========== -->
     <section id="formacao">
         <div class="container">
-            <h2 class="section-title">Education & Courses</h2>
-            <div class="timeline">
-                <div class="timeline-item glass-card">
-                    <h3>Information Technology Management</h3>
-                    <p>FATEC | Expected Graduation: Dec 2026</p>
+            <div class="section-label reveal-up">// education & certifications</div>
+            <h2 class="section-title reveal-up">Education</h2>
+
+            <div class="timeline-v2">
+                <div class="timeline-item-v2 reveal-up" style="animation-delay:0.1s">
+                    <div class="tl-dot tl-dot--main"></div>
+                    <div class="tl-content">
+                        <div class="tl-top">
+                            <h3>IT Management</h3>
+                            <span class="tl-date">Expected Completion: Dec 2026</span>
+                        </div>
+                        <p class="tl-inst">FATEC</p>
+                        <p class="tl-desc">IT training with a focus on systems management, business processes, and applied software engineering.</p>
+                    </div>
                 </div>
-                <div class="timeline-item glass-card">
-                    <h3>Front-End Developer</h3>
-                    <p>Senai | September 2024</p>
+
+                <div class="timeline-item-v2 reveal-up" style="animation-delay:0.2s">
+                    <div class="tl-dot"></div>
+                    <div class="tl-content">
+                        <div class="tl-top">
+                            <h3>CCNA: Introduction to Networks</h3>
+                            <span class="tl-date">Dec 2025</span>
+                        </div>
+                        <p class="tl-inst">Cisco Networking Academy</p>
+                        <p class="tl-desc">Fundamentals of TCP/IP networks, routing, switching, and configuration of Cisco devices.</p>
+                    </div>
                 </div>
-                <div class="timeline-item glass-card">
-                    <h3>Python Programming</h3>
-                    <p>Senai | December 2024</p>
+
+                <div class="timeline-item-v2 reveal-up" style="animation-delay:0.3s">
+                    <div class="tl-dot"></div>
+                    <div class="tl-content">
+                        <div class="tl-top">
+                            <h3>Python Programming</h3>
+                            <span class="tl-date">Dec 2024</span>
+                        </div>
+                        <p class="tl-inst">Senai</p>
+                        <p class="tl-desc">Programming logic, data structures, OOP, and application development with Python.</p>
+                    </div>
                 </div>
-                <div class="timeline-item glass-card">
-                    <h3>CCNA: Introduction to Networks</h3>
-                    <p>Cisco | December 2025</p>
+
+                <div class="timeline-item-v2 reveal-up" style="animation-delay:0.4s">
+                    <div class="tl-dot"></div>
+                    <div class="tl-content">
+                        <div class="tl-top">
+                            <h3>Front-End Developer</h3>
+                            <span class="tl-date">Sep 2024</span>
+                        </div>
+                        <p class="tl-inst">Senai</p>
+                        <p class="tl-desc">HTML5, CSS3, JavaScript, responsiveness, UX best practices, and modern web development.</p>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="experiencia" class="container">
-        <h2 class="section-title">Professional Experience</h2>
-        <div class="exp-card glass-card">
-            <div class="exp-header">
-                <h3>IT Support</h3>
-                <span>Sep/2025 - Present</span>
-            </div>
-            <p><strong>Santa Isabel City Hall</strong></p>
-            <ul>
-                <li>User support, technical hardware/software support, and preventive maintenance.</li>
-            </ul>
-        </div>
-        <div class="exp-card glass-card">
-            <div class="exp-header">
-                <h3>Interaction Expert</h3>
-                <span>Mar/2025 - Jul/2025</span>
-            </div>
-            <p><strong>Teleperformance (Master Bank)</strong></p>
-            <ul>
-                <li>Resolution of critical demands and logging information in banking systems.</li>
-            </ul>
-        </div>
-    </section>
+    <!-- ========== EXPERIENCE ========== -->
+    <section id="experiencia">
+        <div class="container">
+            <div class="section-label reveal-up">// experience</div>
+            <h2 class="section-title reveal-up">Where I've worked</h2>
 
-    <section id="projetos" class="container">
-        <h2 class="section-title">Featured Projects</h2>
-        <div class="carousel-single-wrapper">
-            <button class="carousel-btn prev" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
-            
-            <div class="carousel-viewport">
-                <div class="carousel-track" id="track">
-                    
-                    <!-- Project 0 -->
-                    <div class="project-slide">
-                        <div class="project-card glass-card" data-index="0">
-                            <div class="project-img-placeholder">
-                                <img src="sistemacontroledecasos.png" alt="Case Control" class="project-img">
-                                <div class="img-overlay"></div>
-                                <div class="click-hint pulse">Click for details</div>
-                            </div>
-                            <div class="project-info">
-                                <span class="tag-implantado">Deployed at City Hall</span>
-                                <h3>Case Control (IT)</h3>
-                                <p>Corporate system for asset management and technical support tickets.</p>
-                            </div>
+            <div class="exp-grid">
+                <div class="exp-card-v2 reveal-up" style="animation-delay:0.1s">
+                    <div class="exp-left">
+                        <div class="exp-icon">
+                            <i class="fas fa-building"></i>
                         </div>
                     </div>
-
-                    <!-- Project 1 -->
-                    <div class="project-slide">
-                        <div class="project-card glass-card" data-index="1">
-                            <div class="project-img-placeholder">
-                                <img src="senaibiblioteca.png" alt="Senai Library" class="project-img">
-                                <div class="img-overlay"></div>
-                                <div class="click-hint pulse">Click for details</div>
+                    <div class="exp-right">
+                        <div class="exp-header-v2">
+                            <div>
+                                <h3>IT Intern</h3>
+                                <p class="exp-company">Santa Isabel City Hall</p>
                             </div>
-                            <div class="project-info">
-                                <h3>Senai Library (Django)</h3>
-                                <p>Academic collection management using Python and Django ORM.</p>
-                            </div>
+                            <span class="exp-badge current">Current</span>
+                        </div>
+                        <span class="exp-period">Sep/2025 — Present</span>
+                        <ul class="exp-list">
+                            <li>User support and technical ticket management</li>
+                            <li>Hardware/software support and preventive maintenance</li>
+                            <li><strong>Development and deployment</strong> of the IT Case Management System — a system in daily use by the IT Directorate</li>
+                        </ul>
+                        <div class="exp-tags">
+                            <span>IT Support</span>
+                            <span>Python</span>
+                            <span>Internal Systems</span>
                         </div>
                     </div>
+                </div>
 
-                    <!-- Project 2 -->
-                    <div class="project-slide">
-                        <div class="project-card glass-card" data-index="2">
-                            <div class="project-img-placeholder">
-                                <img src="sistemadereciclagemescolarsustentável.png" alt="School Recycling" class="project-img">
-                                <div class="img-overlay"></div>
-                                <div class="click-hint pulse">Click for details</div>
-                            </div>
-                            <div class="project-info">
-                                <h3>Sustainable School Recycling</h3>
-                                <p>Gamification platform and sustainability incentive in schools.</p>
-                            </div>
+                <div class="exp-card-v2 reveal-up" style="animation-delay:0.2s">
+                    <div class="exp-left">
+                        <div class="exp-icon">
+                            <i class="fas fa-headset"></i>
                         </div>
                     </div>
-
-                    <!-- Project 3 -->
-                    <div class="project-slide">
-                        <div class="project-card glass-card" data-index="3">
-                            <div class="project-img-placeholder">
-                                <img src="sistemadeintegraçãoescolar.jpeg" alt="School Integration" class="project-img">
-                                <div class="img-overlay"></div>
-                                <div class="click-hint pulse">Click for details</div>
-                            </div>
-                            <div class="project-info">
-                                <h3>School Integration</h3>
-                                <p>Portal for real-time communication between school, parents, and students.</p>
+                    <div class="exp-right">
+                        <div class="exp-header-v2">
+                            <div>
+                                <h3>Interaction Expert</h3>
+                                <p class="exp-company">Teleperformance (Banco Master)</p>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Project 4 -->
-                    <div class="project-slide">
-                        <div class="project-card glass-card" data-index="4">
-                            <div class="project-img-placeholder">
-                                <img src="sistemadereciclagem.png" alt="Eco-credits" class="project-img">
-                                <div class="img-overlay"></div>
-                                <div class="click-hint pulse">Click for details</div>
-                            </div>
-                            <div class="project-info">
-                                <h3>ECO-CREDITS (SGTS)</h3>
-                                <p>Sustainable Exchange Management and social inclusion of waste pickers.</p>
-                            </div>
+                        <span class="exp-period">Mar/2025 — Jul/2025</span>
+                        <ul class="exp-list">
+                            <li>Resolving critical client demands in a banking environment</li>
+                            <li>Recording and managing information in banking systems</li>
+                        </ul>
+                        <div class="exp-tags">
+                            <span>Banking Systems</span>
+                            <span>CRM</span>
                         </div>
                     </div>
-
-                    <!-- Project 5 -->
-                    <div class="project-slide">
-                        <div class="project-card glass-card" data-index="5">
-                            <div class="project-img-placeholder">
-                                <img src="panco.png" alt="Panco BPMN" class="project-img">
-                                <div class="img-overlay"></div>
-                                <div class="click-hint pulse">Click for details</div>
-                            </div>
-                            <div class="project-info">
-                                <h3>Panco Process BPMN</h3>
-                                <p>Modeling and optimization of specific corporate management processes.</p>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
-
-            <button class="carousel-btn next" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
-    <!-- Modal (Popup) -->
-    <div id="projectModal" class="modal">
-        <div class="modal-content glass-card">
-            <span class="close-modal" id="closeModal">&times;</span>
+    <!-- ========== PROJECTS ========== -->
+    <section id="projetos">
+        <div class="container">
+            <div class="section-label reveal-up">// projects</div>
+            <h2 class="section-title reveal-up">Featured Projects</h2>
+            <p class="section-sub reveal-up">Systems built from scratch — from requirements gathering to delivery.</p>
+
+            <div class="projects-grid">
+
+                <!-- Project 0 — Highlight (wide) -->
+                <div class="project-card-v2 project-featured reveal-up" data-index="0" style="animation-delay:0.1s">
+                    <div class="proj-img-wrap">
+                        <img src="img/sistemacontroledecasos.png" alt="Case Control">
+                        <div class="proj-overlay">
+                            <span class="proj-see">See details →</span>
+                        </div>
+                    </div>
+                    <div class="proj-info">
+                        <div class="proj-top">
+                            <span class="proj-badge badge-prod">✦ In production</span>
+                            <span class="proj-year">2025</span>
+                        </div>
+                        <h3>Case Control — IT Santa Isabel</h3>
+                        <p>Corporate system for ticket management, assets, and maintenance. Deployed and in daily use by the IT Directorate of Santa Isabel City Hall.</p>
+                        <div class="proj-stack">
+                            <span>Python</span><span>Django</span><span>SQL</span><span>PDF Reports</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 1 -->
+                <div class="project-card-v2 reveal-up" data-index="1" style="animation-delay:0.2s">
+                    <div class="proj-img-wrap">
+                        <img src="img/senaibiblioteca.png" alt="Senai Library">
+                        <div class="proj-overlay"><span class="proj-see">See details →</span></div>
+                    </div>
+                    <div class="proj-info">
+                        <div class="proj-top">
+                            <span class="proj-badge">Web App</span>
+                            <span class="proj-year">2024</span>
+                        </div>
+                        <h3>Senai Library</h3>
+                        <p>Collection management platform built with Python and Django ORM.</p>
+                        <div class="proj-stack">
+                            <span>Python</span><span>Django</span><span>SQLite</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card-v2 reveal-up" data-index="2" style="animation-delay:0.3s">
+                    <div class="proj-img-wrap">
+                        <img src="img/sistemadereciclagemescolarsustentável.png" alt="School Recycling">
+                        <div class="proj-overlay"><span class="proj-see">See details →</span></div>
+                    </div>
+                    <div class="proj-info">
+                        <div class="proj-top">
+                            <span class="proj-badge">Gamification</span>
+                            <span class="proj-year">2024</span>
+                        </div>
+                        <h3>Sustainable School Recycling</h3>
+                        <p>Gamification system to encourage sustainability in schools with class rankings.</p>
+                        <div class="proj-stack">
+                            <span>Front-End</span><span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card-v2 reveal-up" data-index="3" style="animation-delay:0.1s">
+                    <div class="proj-img-wrap">
+                        <img src="img/sistemadeintegraçãoescolar .jpeg" alt="School Integration">
+                        <div class="proj-overlay"><span class="proj-see">See details →</span></div>
+                    </div>
+                    <div class="proj-info">
+                        <div class="proj-top">
+                            <span class="proj-badge">Web Portal</span>
+                            <span class="proj-year">2024</span>
+                        </div>
+                        <h3>School Integration</h3>
+                        <p>Portal with differentiated profiles (parents, students, and teachers) for real-time communication.</p>
+                        <div class="proj-stack">
+                            <span>C#</span><span>ASP.NET</span><span>SQL Server</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card-v2 reveal-up" data-index="4" style="animation-delay:0.2s">
+                    <div class="proj-img-wrap">
+                        <img src="img/sistemadereciclagem.png" alt="Ecocredits">
+                        <div class="proj-overlay"><span class="proj-see">See details →</span></div>
+                    </div>
+                    <div class="proj-info">
+                        <div class="proj-top">
+                            <span class="proj-badge">Social Impact</span>
+                            <span class="proj-year">2024</span>
+                        </div>
+                        <h3>ECOCREDITS (SGTS)</h3>
+                        <p>Management system for sustainable exchange and social inclusion of waste pickers.</p>
+                        <div class="proj-stack">
+                            <span>Front-End</span><span>JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card-v2 reveal-up" data-index="5" style="animation-delay:0.3s">
+                    <div class="proj-img-wrap">
+                        <img src="img/panco.png" alt="BPMN Panco">
+                        <div class="proj-overlay"><span class="proj-see">See details →</span></div>
+                    </div>
+                    <div class="proj-info">
+                        <div class="proj-top">
+                            <span class="proj-badge">Processes</span>
+                            <span class="proj-year">2024</span>
+                        </div>
+                        <h3>Panco Process BPMN</h3>
+                        <p>Modeling and optimization of corporate processes using BPMN notation.</p>
+                        <div class="proj-stack">
+                            <span>BPMN</span><span>IT Management</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Modal -->
+    <div id="projectModal" class="modal-v2">
+        <div class="modal-backdrop" id="modalBackdrop"></div>
+        <div class="modal-panel" id="modalPanel">
+            <button class="modal-close" id="closeModal">
+                <i class="fas fa-times"></i>
+            </button>
             <div id="modal-data"></div>
         </div>
     </div>
 
-    <footer id="contato">
-        <div class="container glass-card footer-content">
-            <h2>Let's talk?</h2>
-            <div class="contact-info">
-                <a href="mailto:alextjss68@gmail.com"><i class="fas fa-envelope"></i> alextjss68@gmail.com</a>
-                <a href="tel:11934454984"><i class="fas fa-phone"></i> (11) 93445-4984</a>
+    <!-- ========== CONTACT ========== -->
+    <section id="contato">
+        <div class="container contato-inner reveal-up">
+            <div class="section-label">// contact</div>
+            <h2 class="section-title">Let's build<br>something together?</h2>
+            <p class="contato-sub">I am available for internships, freelance work, and junior software development positions. I respond quickly.</p>
+
+            <div class="contato-cards">
+                <a href="mailto:alextjss68@gmail.com" class="contato-card">
+                    <div class="contato-icon"><i class="fas fa-envelope"></i></div>
+                    <div>
+                        <span class="contato-label">Email</span>
+                        <span class="contato-value">alextjss68@gmail.com</span>
+                    </div>
+                    <i class="fas fa-arrow-right contato-arrow"></i>
+                </a>
+                <a href="tel:11934454984" class="contato-card">
+                    <div class="contato-icon"><i class="fas fa-phone"></i></div>
+                    <div>
+                        <span class="contato-label">Phone</span>
+                        <span class="contato-value">+55 (11) 93445-4984</span>
+                    </div>
+                    <i class="fas fa-arrow-right contato-arrow"></i>
+                </a>
+                <a href="https://linkedin.com" target="_blank" class="contato-card">
+                    <div class="contato-icon"><i class="fab fa-linkedin-in"></i></div>
+                    <div>
+                        <span class="contato-label">LinkedIn</span>
+                        <span class="contato-value">Connect on LinkedIn</span>
+                    </div>
+                    <i class="fas fa-arrow-right contato-arrow"></i>
+                </a>
+                <a href="https://github.com" target="_blank" class="contato-card">
+                    <div class="contato-icon"><i class="fab fa-github"></i></div>
+                    <div>
+                        <span class="contato-label">GitHub</span>
+                        <span class="contato-value">View repositories</span>
+                    </div>
+                    <i class="fas fa-arrow-right contato-arrow"></i>
+                </a>
             </div>
-            <p class="copyright">© 2024 Alex Silva Santos.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-inner">
+            <div class="footer-logo">
+                <span class="logo-bracket">&lt;</span>alex<span class="logo-dot">.dev</span><span class="logo-bracket">/&gt;</span>
+            </div>
+            <p class="footer-copy">© 2025 Alex Silva Santos — Built with pure HTML, CSS &amp; JS.</p>
         </div>
     </footer>
 
