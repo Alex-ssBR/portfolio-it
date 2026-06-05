@@ -1,11 +1,4 @@
-/**
- * PORTFÓLIO — ALEX SILVA SANTOS
- * Script principal: Canvas, Cursor, Scroll, Modal, Counter
- */
 
-// ===========================
-// 1. CANVAS DE PARTÍCULAS
-// ===========================
 (function initCanvas() {
     const canvas = document.getElementById('bg-canvas');
     if (!canvas) return;
@@ -75,9 +68,7 @@
     window.addEventListener('resize', () => { resize(); initParticles(); });
 })();
 
-// ===========================
-// 2. CURSOR PERSONALIZADO
-// ===========================
+
 (function initCursor() {
     const cursor = document.getElementById('cursor');
     const follower = document.getElementById('cursor-follower');
@@ -112,9 +103,7 @@
     });
 })();
 
-// ===========================
-// 3. LEITURA — BARRA DE PROGRESSO
-// ===========================
+
 (function initReadingBar() {
     const bar = document.getElementById('reading-bar');
     if (!bar) return;
@@ -125,9 +114,7 @@
     });
 })();
 
-// ===========================
-// 4. HEADER SCROLLED
-// ===========================
+
 (function initHeader() {
     const header = document.getElementById('header');
     if (!header) return;
@@ -136,9 +123,7 @@
     });
 })();
 
-// ===========================
-// 5. MENU MOBILE
-// ===========================
+
 (function initMobileMenu() {
     const toggle = document.getElementById('menuToggle');
     const menu = document.getElementById('mobileMenu');
@@ -153,9 +138,7 @@
     });
 })();
 
-// ===========================
-// 6. SCROLL REVEAL
-// ===========================
+
 (function initReveal() {
     const els = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
     if (!els.length) return;
