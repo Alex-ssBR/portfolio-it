@@ -1,4 +1,11 @@
+/**
+ * PORTFOLIO — ALEX SILVA SANTOS
+ * Main script: Canvas, Cursor, Scroll, Modal, Counter
+ */
 
+// ===========================
+// 1. PARTICLE CANVAS
+// ===========================
 (function initCanvas() {
     const canvas = document.getElementById('bg-canvas');
     if (!canvas) return;
@@ -47,7 +54,7 @@
     function loop() {
         ctx.clearRect(0, 0, W, H);
 
-        // Grade sutil de fundo
+        // Subtle background grid
         ctx.strokeStyle = 'rgba(255,255,255,0.025)';
         ctx.lineWidth = 0.5;
         const gridSize = 80;
@@ -68,7 +75,9 @@
     window.addEventListener('resize', () => { resize(); initParticles(); });
 })();
 
-
+// ===========================
+// 2. CUSTOM CURSOR
+// ===========================
 (function initCursor() {
     const cursor = document.getElementById('cursor');
     const follower = document.getElementById('cursor-follower');
@@ -96,14 +105,16 @@
     }
     animateFollower();
 
-    // Efeito hover
+    // Hover effect
     document.querySelectorAll('a, button, .project-card-v2, .stack-category').forEach(el => {
         el.addEventListener('mouseenter', () => document.body.classList.add('cursor-hover'));
         el.addEventListener('mouseleave', () => document.body.classList.remove('cursor-hover'));
     });
 })();
 
-
+// ===========================
+// 3. READING PROGRESS BAR
+// ===========================
 (function initReadingBar() {
     const bar = document.getElementById('reading-bar');
     if (!bar) return;
@@ -114,7 +125,9 @@
     });
 })();
 
-
+// ===========================
+// 4. SCROLLED HEADER
+// ===========================
 (function initHeader() {
     const header = document.getElementById('header');
     if (!header) return;
@@ -123,7 +136,9 @@
     });
 })();
 
-
+// ===========================
+// 5. MOBILE MENU
+// ===========================
 (function initMobileMenu() {
     const toggle = document.getElementById('menuToggle');
     const menu = document.getElementById('mobileMenu');
@@ -138,7 +153,9 @@
     });
 })();
 
-
+// ===========================
+// 6. SCROLL REVEAL
+// ===========================
 (function initReveal() {
     const els = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
     if (!els.length) return;
@@ -146,7 +163,7 @@
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                // Respeita animation-delay inline
+                // Respect inline animation-delay
                 const el = entry.target;
                 const delay = parseFloat(el.style.animationDelay || '0') * 1000;
                 setTimeout(() => el.classList.add('revealed'), delay);
@@ -159,7 +176,7 @@
 })();
 
 // ===========================
-// 7. CONTADOR ANIMADO (HERO STATS)
+// 7. ANIMATED COUNTER (HERO STATS)
 // ===========================
 (function initCounters() {
     const counters = document.querySelectorAll('.stat-num[data-target]');
@@ -190,7 +207,7 @@
 })();
 
 // ===========================
-// 8. SCROLL SUAVE
+// 8. SMOOTH SCROLL
 // ===========================
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
@@ -203,111 +220,111 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 });
 
 // ===========================
-// 9. BANCO DE DADOS DOS PROJETOS
+// 9. PROJECT DATABASE
 // ===========================
 const projectData = [
     {
-        title: "Controle de Casos — TI Santa Isabel",
-        sub: "Sistema em produção · Prefeitura de Santa Isabel",
+        title: "Case Control — IT Santa Isabel",
+        sub: "System in production · Santa Isabel City Hall",
         stack: ["Python", "Django", "SQL", "PDF Reports", "Login/Auth"],
         content: `
-            <h3>Contexto</h3>
-            <p>Sistema corporativo desenvolvido e implantado na Diretoria de TI da Prefeitura de Santa Isabel. Em uso diário pela equipe técnica.</p>
-            <h3>Funcionalidades entregues</h3>
+            <h3>Context</h3>
+            <p>Corporate system developed and deployed at the IT Directorate of Santa Isabel City Hall. In daily use by the technical team.</p>
+            <h3>Delivered Features</h3>
             <ul>
-                <li>Substituição total de processos manuais por sistema informatizado;</li>
-                <li>Gerenciamento completo de casos: criação, reabertura e finalização;</li>
-                <li>Geração de relatórios em PDF com filtros por período e responsável;</li>
-                <li>Controle de acesso seguro por login, com perfis de usuário diferenciados.</li>
+                <li>Total replacement of manual processes with a digital system;</li>
+                <li>Complete case management: creation, reopening, and closing;</li>
+                <li>PDF report generation with filters by period and responsible party;</li>
+                <li>Secure access control via login, with differentiated user profiles.</li>
             </ul>
-            <h3>Impacto</h3>
-            <p>Reduziu drasticamente o tempo de rastreamento de chamados e centralizou o histórico de manutenções da prefeitura em um único sistema auditável.</p>
+            <h3>Impact</h3>
+            <p>Drastically reduced ticket tracking time and centralized the city hall's maintenance history into a single auditable system.</p>
         `
     },
     {
-        title: "Biblioteca Senai",
-        sub: "Aplicação Web · Python + Django",
+        title: "Senai Library",
+        sub: "Web Application · Python + Django",
         stack: ["Python 3", "Django", "ORM", "SQLite", "HTML/CSS"],
         content: `
-            <h3>Sobre o projeto</h3>
-            <p>Plataforma web completa para gerenciamento de biblioteca acadêmica, construída com Python e Django seguindo padrões de engenharia de software modernos.</p>
-            <h3>Funcionalidades</h3>
+            <h3>About the Project</h3>
+            <p>Complete web platform for academic library management, built with Python and Django following modern software engineering standards.</p>
+            <h3>Features</h3>
             <ul>
-                <li>Interface intuitiva para pesquisa e consulta ágil de livros;</li>
-                <li>Otimização do fluxo de empréstimos e devoluções;</li>
-                <li>Integração com banco de dados via ORM Django;</li>
-                <li>Melhoria significativa na experiência dos usuários finais.</li>
+                <li>Intuitive interface for fast book searching and consultation;</li>
+                <li>Optimization of loan and return workflows;</li>
+                <li>Database integration via Django ORM;</li>
+                <li>Significant improvement in end-user experience.</li>
             </ul>
         `
     },
     {
-        title: "Reciclagem Escolar Sustentável",
-        sub: "Plataforma de Gamificação · Front-End",
-        stack: ["HTML5", "CSS3", "JavaScript", "Design Responsivo"],
+        title: "Sustainable School Recycling",
+        sub: "Gamification Platform · Front-End",
+        stack: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
         content: `
-            <h3>Proposta</h3>
-            <p>Sistema que incentiva a reciclagem no ambiente escolar, transformando resíduos entregues em créditos educativos — com ranking por turma para engajamento coletivo.</p>
-            <h3>Funcionalidades</h3>
+            <h3>Proposal</h3>
+            <p>A system that encourages recycling in the school environment by transforming delivered waste into educational credits — featuring a class ranking for collective engagement.</p>
+            <h3>Features</h3>
             <ul>
-                <li>Registro de entrega de materiais recicláveis por alunos e funcionários;</li>
-                <li>Atribuição de pontos (Ecocreditos) trocáveis por livros e kits escolares;</li>
-                <li>Ranking de "Turmas Sustentáveis" para promover competição saudável;</li>
-                <li>Relatórios de impacto ambiental por série.</li>
+                <li>Recyclable material delivery registry for students and staff;</li>
+                <li>Point attribution (Ecocredits) exchangeable for books and school kits;</li>
+                <li>"Sustainable Classes" ranking to promote healthy competition;</li>
+                <li>Environmental impact reports per grade level.</li>
             </ul>
         `
     },
     {
-        title: "Sistema de Integração Escolar",
-        sub: "Portal Web · C# + ASP.NET",
-        stack: ["C#", "ASP.NET", "SQL Server", "MVC", "Design Responsivo"],
+        title: "School Integration System",
+        sub: "Web Portal · C# + ASP.NET",
+        stack: ["C#", "ASP.NET", "SQL Server", "MVC", "Responsive Design"],
         content: `
-            <h3>Problema resolvido</h3>
-            <p>Falhas de comunicação entre família e escola causam impacto direto no desempenho acadêmico. Este sistema oferece acesso em tempo real a notas, frequência e observações dos professores.</p>
-            <h3>Ficha técnica</h3>
+            <h3>Problem Solved</h3>
+            <p>Communication gaps between families and schools directly impact academic performance. This system provides real-time access to grades, attendance, and teacher remarks.</p>
+            <h3>Technical Specs</h3>
             <ul>
-                <li>Desenvolvido com <strong>C# (ASP.NET) e SQL Server</strong>;</li>
-                <li>Diferenciação de perfis: Pais, Professores e Alunos;</li>
-                <li>Acesso instantâneo a notas, frequência e comunicados;</li>
-                <li>Interface responsiva e adaptada para mobile.</li>
+                <li>Developed with <strong>C# (ASP.NET) and SQL Server</strong>;</li>
+                <li>Role differentiation: Parents, Teachers, and Students;</li>
+                <li>Instant access to grades, frequency, and announcements;</li>
+                <li>Responsive interface adapted for mobile devices.</li>
             </ul>
         `
     },
     {
-        title: "ECOCRÉDITOS — SGTS",
-        sub: "Sistema de Gestão para Troca Sustentável",
+        title: "ECOCREDITS — SGTS",
+        sub: "Sustainable Exchange Management System",
         stack: ["HTML5", "CSS3", "JavaScript"],
         content: `
-            <h3>Inclusão social e sustentabilidade</h3>
-            <p>Focado na valorização dos catadores de materiais recicláveis. Transforma o trabalho de coleta em retorno direto — créditos trocáveis por alimentos e necessidades básicas.</p>
-            <h3>Como funciona</h3>
+            <h3>Social Inclusion and Sustainability</h3>
+            <p>Focused on valuing recyclable material pickers. Transforms collection work into direct returns — credits exchangeable for food and basic necessities.</p>
+            <h3>How it works</h3>
             <ul>
-                <li>Colaboradores entregam materiais (latas, ferro, eletrônicos) e acumulam créditos;</li>
-                <li>Os créditos são trocados por <strong>produtos alimentícios</strong>;</li>
-                <li>Combate à invisibilidade social e às condições precárias de trabalho;</li>
-                <li>Incentiva conscientização coletiva sobre o descarte de resíduos.</li>
+                <li>Collaborators deliver materials (cans, iron, electronics) and accumulate credits;</li>
+                <li>Credits are exchanged for <strong>food products</strong>;</li>
+                <li>Combats social invisibility and precarious working conditions;</li>
+                <li>Encourages collective awareness regarding waste disposal.</li>
             </ul>
         `
     },
     {
-        title: "BPMN Processo Panco",
-        sub: "Engenharia de Processos · Modelagem Corporativa",
-        stack: ["BPMN 2.0", "Modelagem de Processos", "Gestão de TI"],
+        title: "Panco Process BPMN",
+        sub: "Process Engineering · Corporate Modeling",
+        stack: ["BPMN 2.0", "Process Modeling", "IT Management"],
         content: `
-            <h3>Engenharia de processos</h3>
-            <p>Modelagem técnica completa de um processo de gestão corporativa para a empresa Panco, utilizando notação padrão de mercado BPMN.</p>
-            <h3>Escopo</h3>
+            <h3>Process Engineering</h3>
+            <p>Complete technical modeling of a corporate management process for Panco, using industry-standard BPMN notation.</p>
+            <h3>Scope</h3>
             <ul>
-                <li>Mapeamento detalhado de fluxos com notação BPMN 2.0;</li>
-                <li>Identificação de gargalos e pontos críticos de controle;</li>
-                <li>Proposta de otimização para maior transparência e agilidade;</li>
-                <li>Documentação focada em padronização de processos internos.</li>
+                <li>Detailed flow mapping using BPMN 2.0 notation;</li>
+                <li>Identification of bottlenecks and critical control points;</li>
+                <li>Optimization proposal for greater transparency and agility;</li>
+                <li>Documentation focused on internal process standardization.</li>
             </ul>
         `
     }
 ];
 
 // ===========================
-// 10. MODAL DE PROJETOS
+// 10. PROJECT MODAL
 // ===========================
 (function initModal() {
     const modal = document.getElementById('projectModal');
@@ -338,7 +355,7 @@ const projectData = [
         document.body.style.overflow = '';
     }
 
-    // Abrir ao clicar em cards
+    // Open when clicking cards
     document.querySelectorAll('.project-card-v2').forEach(card => {
         card.addEventListener('click', () => {
             const idx = parseInt(card.getAttribute('data-index'));
@@ -355,7 +372,7 @@ const projectData = [
 })();
 
 // ===========================
-// 11. EFEITO PARALLAX SUTIL NO HERO
+// 11. SUBTLE HERO PARALLAX EFFECT
 // ===========================
 (function initParallax() {
     const hero = document.getElementById('hero');
