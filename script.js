@@ -290,6 +290,28 @@ const projectData = [
         `
     },
     {
+        title: "School Library Control System",
+        sub: "Management & Logistics · School Environment",
+        stack: ["Python", "Django", "SQL Server", "Role-Based Access"],
+        content: `
+            <h3>Objective</h3>
+            <p>Develop a system capable of organizing collections, registering loans, and verifying book availability to support school library management.</p>
+            <h3>Key Features</h3>
+            <ul>
+                <li><strong>Role-Based Access:</strong> Specific permissions for Students, Teachers, and Administrators.</li>
+                <li><strong>Loan Management:</strong> Complete control over check-outs, returns, and deadline renewals.</li>
+                <li><strong>Detailed Registration:</strong> Captures essential data including Name, CPF, Class, and Contact info.</li>
+                <li><strong>Responsibility Score:</strong> A unique evaluation system for students and teachers based on their return history.</li>
+            </ul>
+            <h3>Business Rules</h3>
+            <ul>
+                <li>Standard loan period of one week with administrative renewal options.</li>
+                <li>Full CRUD (Create, Read, Update, Delete) capabilities for administrative profiles.</li>
+                <li>System-wide availability alerts and organization reminders.</li>
+            </ul>
+        `
+    },
+    {
         title: "ECOCREDITS — SGTS",
         sub: "Sustainable Exchange Management System",
         stack: ["HTML5", "CSS3", "JavaScript"],
